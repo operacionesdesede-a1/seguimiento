@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>Seguimiento y Registro</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #111827; }
+  iframe { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: #f3f4f6; }
+</style>
+</head>
+<body>
+<!--
+  Página contenedora: muestra la app de Apps Script a pantalla completa, sin el aviso
+  "Un usuario de Google Apps Script creó esta aplicación".
+  Pega abajo la URL de tu implementación (la que termina en /exec).
+-->
+<iframe id="app" title="Seguimiento y Registro" allow="clipboard-write"></iframe>
+<script>
+  const URL_APP = 'https://script.google.com/macros/s/AKfycbxcLE58eC2_CSXdXSxHzGZQ37Qce2NIrSdmPjS2smFEZShF2HY7mnn47lZJXGxFhUDmSg/exec';
+
+  const pagina = new URLSearchParams(location.search).get('page');
+  document.getElementById('app').src = URL_APP + (pagina ? '?page=' + encodeURIComponent(pagina) : '');
+</script>
+</body>
+</html>
